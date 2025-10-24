@@ -1,0 +1,48 @@
+.background-slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center top;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
+  transform: scale(1.1); /* Slight zoom out */
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1); /* Normal size */
+}
+
+.slide-content {
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+@media (max-width: 850px) {
+  .slide-content h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .slide-content h1 {
+    font-size: 30px;
+  }
+  
+  .slide-content p {
+    font-size: 14px;
+  }
+}
+
