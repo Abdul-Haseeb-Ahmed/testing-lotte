@@ -2,9 +2,6 @@
   "name": "lotte",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-  "node": ">=18.0.0"
-  },
 
 "scripts": {
   "dev": "next dev",
@@ -16,10 +13,9 @@
   "dependencies": {
     "lucide": "^0.546.0",
     "lucide-react": "^0.546.0",
-    "next": "16.0.0",
-    "react": "^19.2.0",
-    "react-dom": "19.2.0",
-    "react-icons": "^5.5.0"
+    "next": "14.0.0", 
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0"
