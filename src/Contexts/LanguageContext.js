@@ -183,7 +183,6 @@ export function LanguageProvider({ children }) {
             gap: '20px',
           }}
         >
-          <div style={{ fontSize: '48px' }}>🌐</div>
           <div>Changing language...</div>
           {/* Loading spinner */}
           <div style={{
