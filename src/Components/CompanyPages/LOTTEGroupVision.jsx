@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function LOTTEGroupVision() {
@@ -23,17 +24,14 @@ function LOTTEGroupVision() {
         
         <div style={{ margin: '40px auto', display: 'flex', flexDirection: 'column', gap: '30px', maxWidth: '900px', alignItems: 'center' }}>
           {visionImages.map((img, i) => (
-            <img
+            <UniversalImage
               key={i} 
               src={img} 
               alt={`Vision ${i + 1}`} 
-              style={{ width: '100%', maxWidth: '800px', height: 'auto', borderRadius: '4px' }} 
-              loading="lazy"
+              className="vision-image"
             />
           ))}
         </div>
-
-
       </div>
     </PageLayout>
   )

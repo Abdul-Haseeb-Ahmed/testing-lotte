@@ -12,8 +12,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center top;
   opacity: 0;
   transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
   transform: scale(1.1); /* Slight zoom out */
@@ -24,10 +22,20 @@
   transform: scale(1); /* Normal size */
 }
 
+/* IMPORTANT: Next.js Image ke liye */
+.slide img {
+  object-fit: cover;
+  object-position: center top; /* Ye tumhare background-position jaise hai */
+  width: 100%;
+  height: 100%;
+}
+
 .slide-content {
   text-align: center;
   max-width: 800px;
   padding: 0 20px;
+  position: relative;
+  z-index: 10; /* Text upar dikhega */
 }
 
 @media (max-width: 850px) {
@@ -45,4 +53,3 @@
     font-size: 14px;
   }
 }
-

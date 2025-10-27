@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function CharlottesStory() {
@@ -26,11 +27,13 @@ function CharlottesStory() {
           </div>
 
           <div className="charlotte-image">
-            <img src={images.charlotte} loading='lazy' alt="Charlotte" />
+            <UniversalImage 
+              src={images.charlotte} 
+              alt="Charlotte" 
+              className="charlotte-portrait"
+            />
           </div>
         </div>
-
-
       </div>
     </PageLayout>
   )

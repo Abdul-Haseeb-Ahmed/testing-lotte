@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function PTA() {
@@ -23,7 +24,11 @@ function PTA() {
         </p>
 
         <div style={{ margin: '40px auto', textAlign: 'center', maxWidth: '600px' }}>
-          <img src={images.ptaImage} loading='lazy' alt="PTA Product" style={{ width: '100%', height: 'auto', borderRadius: '4px' }} />
+          <UniversalImage 
+            src={images.ptaImage} 
+            alt="PTA Product" 
+            className="pta-product-image"
+          />
         </div>
 
         <div className="body-text">

@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function TrainingDevelopment() {
@@ -21,7 +22,11 @@ function TrainingDevelopment() {
             Individual development needs are identified through our performance evaluation system. During evaluations, we assess employees’ current qualifications and competencies against targeted goals, helping us pinpoint areas for growth and inform training needs. This process ensures that employees’ development aligns with the company’s strategic objectives.
         </p>
         <div className="management-graph">
-            <img src={images.trainingDevelopment} loading="lazy" alt="Management Policy" />
+          <UniversalImage 
+            src={images.trainingDevelopment} 
+            alt="Training and Development Process" 
+            className="training-image"
+          />
         </div>
 
         <div className="management-section">

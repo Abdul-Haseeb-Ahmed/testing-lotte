@@ -1,7 +1,8 @@
 "use client";
-import React, { useState, useEffect } from 'react'
-import './Background.css'
-import { images } from '../CloudinaryImagesUrl/ImagesUrl'
+import React, { useState, useEffect } from 'react';
+import './Background.css';
+import { images } from '../CloudinaryImagesUrl/ImagesUrl';
+import UniversalImage from '../UniversalImage/UniversalImage';
 
 function Background() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,11 +36,19 @@ function Background() {
           className={`slide ${index === currentSlide ? 'active' : ''} ${
             index === (currentSlide - 1 + slides.length) % slides.length ? 'prev' : ''
           }`}
-          style={{ backgroundImage: `url(${slide})` }}
-        />
+        >
+          <UniversalImage
+            src={slide}
+            alt={`Lotte Chemical Pakistan - Slide ${index + 1}`}
+            fill={true}
+            priority={index === 0}
+            quality={90}
+            sizes="100vw"
+          />
+        </div>
       ))}
     </div>
-  )
+  );
 }
 
-export default Background
+export default Background;

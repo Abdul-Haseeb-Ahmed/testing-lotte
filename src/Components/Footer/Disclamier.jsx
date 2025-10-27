@@ -122,11 +122,6 @@ function Disclaimer() {
                 bound by this disclaimer.
               </p>
             </div>
-
-            {/* Last Updated */}
-            <div className="last-updated">
-              <p>Last Updated: October 20, 2025</p>
-            </div>
           </div>
         </main>
       </div>

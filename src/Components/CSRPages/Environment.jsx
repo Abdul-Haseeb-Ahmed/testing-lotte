@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function Environment() {
@@ -15,7 +16,11 @@ function Environment() {
         <h2>Environment</h2>
 
         <div className="management-graph">
-          <img src={images.csrEnvironment} loading='lazy' alt="Management Policy" />
+          <UniversalImage 
+            src={images.csrEnvironment} 
+            alt="Environment CSR" 
+            className="environment-image"
+          />
         </div>
       </div>
       </PageLayout> 

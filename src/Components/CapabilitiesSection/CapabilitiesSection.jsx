@@ -1,8 +1,15 @@
-"use client";
+'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import './CapabilitiesSection.css'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
-import { FaMapMarkerAlt, FaPhone, FaFax, FaEnvelope, FaBuilding, FaArrowRight } from "react-icons/fa";
+import { 
+  FaMapMarkerAlt, 
+  FaPhone, 
+  FaFax, 
+  FaEnvelope,
+  FaBuilding,
+  FaArrowRight
+} from 'react-icons/fa'
 
 function ParallaxSection({ image, title, text, isContact }) {
   const sectionRef = useRef(null);
@@ -268,9 +275,7 @@ function CapabilitiesSection() {
           </>
         }
         isContact={false}
-
       />
-
       <ParallaxSection
         image={images.capImage5}
         title="CONNECTIONS THAT WE VALUE"
@@ -280,7 +285,6 @@ function CapabilitiesSection() {
           </>
         }
         isContact={true}
-
       />
     </>
   );

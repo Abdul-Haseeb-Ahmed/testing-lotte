@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function Recrutiment() {
@@ -30,7 +31,11 @@ function Recrutiment() {
             Generally, we initiate several recruitment drives for fresh engineering graduates from universities including Ghulam Ishaq Khan Institute of Engineering Sciences and Technology (GIKI), University of Engineering and Technology, Lahore, Punjab University, NED University of Engineering and Technology, Dawood College of Engineering and Technology, National University of Science and Technology (NUST) and Lahore University of Management Sciences (LUMS). The following selection process is followed by us:
           </p>
           <div className="management-graph">
-            <img src={images.recruitment} loading='lazy' alt="Management Policy" />
+            <UniversalImage 
+              src={images.recruitment} 
+              alt="Recruitment Process" 
+              className="recruitment-image"
+            />
           </div>
         </div>
 
@@ -49,7 +54,11 @@ function Recrutiment() {
             Upon completion, the majority of apprentices are offered permanent jobs within the Company – depending on job openings, of course.
           </p>
           <div className="management-graph">
-            <img src={images.recruitment2} loading='lazy' alt="Management Policy" />
+            <UniversalImage 
+              src={images.recruitment2} 
+              alt="Apprenticeship Program" 
+              className="recruitment-image"
+            />
           </div>
         </div>
 

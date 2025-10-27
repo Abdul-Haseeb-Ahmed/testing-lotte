@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function CurrentVacancies() {
@@ -156,9 +157,12 @@ function CurrentVacancies() {
         <p className="body-text">
           At Lotte Chemical Pakistan, we nurture a collaborative and innovative culture. We value diversity and believe in providing opportunities for personal and professional growth.
         </p>
-
         <div className="management-graph">
-          <img src={images.vacancies} loading="lazy" alt="Current Vacancies" />
+          <UniversalImage 
+            src={images.vacancies} 
+            alt="Current Vacancies" 
+            className="vacancies-image"
+          />
         </div>
 
         {vacancies.map((vacancy, index) => (

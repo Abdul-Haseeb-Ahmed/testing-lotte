@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function ProcessTechnology() {
@@ -47,10 +48,12 @@ function ProcessTechnology() {
         </div>
 
         <div style={{ margin: '40px auto', textAlign: 'center', maxWidth: '600px' }}>
-          <img src={images.processTechnology} loading='lazy' alt="PTA Chemical Process" style={{ width: '100%', height: 'auto', borderRadius: '4px' }} />
+          <UniversalImage 
+            src={images.processTechnology} 
+            alt="PTA Chemical Process" 
+            className="process-image"
+          />
         </div>
-
-
       </div>
     </PageLayout>
   )

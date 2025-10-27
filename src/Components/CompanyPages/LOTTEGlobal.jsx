@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function LOTTEGlobal() {
@@ -18,11 +19,18 @@ function LOTTEGlobal() {
         </p>
 
         <div>
-          <img src={images.lotteGlobal1} loading='lazy' alt="LOTTE Global 1" style={{ width: '100%', height: 'auto', borderRadius: '4px' }} /> <br />
-          <img src={images.lotteGlobal2} loading='lazy' alt="LOTTE Global 2" style={{ width: '100%', height: 'auto', borderRadius: '4px' }} />
+          <UniversalImage 
+            src={images.lotteGlobal1} 
+            alt="LOTTE Global 1" 
+            className="responsive-image"
+          />
+          <br />
+          <UniversalImage 
+            src={images.lotteGlobal2} 
+            alt="LOTTE Global 2" 
+            className="responsive-image"
+          />
         </div>
-
-
       </div>
     </PageLayout>
   )
