@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/Contexts/LanguageContext';
+import { searchData } from '@/data/SearchData';
 import './Navbar.css';
 import { images } from '../CloudinaryImagesUrl/ImagesUrl';
 
@@ -10,6 +11,12 @@ function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const router = useRouter();
   const { locale, changeLanguage } = useLanguage();
+
+  // Search States
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -40,6 +47,94 @@ function Navbar() {
     }
   };
 
+  // ========== SEARCH FUNCTIONS ==========
+  
+  // Click outside to close
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Search Logic
+  const performSearch = (query) => {
+    if (!query || query.trim() === '') return [];
+    
+    const searchTerm = query.toLowerCase().trim();
+    
+    const results = searchData
+      .map(page => {
+        let score = 0;
+        
+        // Title match
+        if (page.title.toLowerCase().includes(searchTerm)) {
+          score += 100;
+        }
+        
+        // Keywords match
+        const matchingKeywords = page.keywords.filter(keyword => 
+          keyword.toLowerCase().includes(searchTerm)
+        );
+        score += matchingKeywords.length * 10;
+        
+        // Description match
+        if (page.description.toLowerCase().includes(searchTerm)) {
+          score += 5;
+        }
+        
+        // Category match
+        if (page.category.toLowerCase().includes(searchTerm)) {
+          score += 3;
+        }
+        
+        return { ...page, score };
+      })
+      .filter(page => page.score > 0)
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        return a.priority - b.priority;
+      })
+      .slice(0, 2); // Sirf 2 suggestions
+    
+    return results;
+  };
+
+  const handleSearchInput = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+
+    if (value.trim().length > 0) {
+      const results = performSearch(value);
+      setSearchSuggestions(results);
+      setShowSuggestions(true);
+    } else {
+      setSearchSuggestions([]);
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setShowSuggestions(false);
+      setSearchQuery('');
+    }
+  };
+
+  const handleSuggestionClick = (url) => {
+    router.push(url);
+    setSearchQuery('');
+    setSearchSuggestions([]);
+    setShowSuggestions(false);
+  };
+
+  // ========== ICONS ==========
+
   const SearchIcon = () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
       <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -62,13 +157,49 @@ function Navbar() {
           onClick={() => handleNavigation('/')}
           style={{ cursor: 'pointer' }}
         />
-        <div className="search-section">
-          <div className="search-box">
-            <input type="text" placeholder="Search..." className="search-input" />
-            <button className="search-btn">
+        
+        {/* Search Section with Suggestions */}
+        <div className="search-section" ref={searchRef}>
+          <form onSubmit={handleSearchSubmit} className="search-box">
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              className="search-input"
+              value={searchQuery}
+              onChange={handleSearchInput}
+              onFocus={() => searchQuery.trim() && setShowSuggestions(true)}
+            />
+            <button type="submit" className="search-btn">
               <SearchIcon />
             </button>
-          </div>
+          </form>
+
+          {/* Live Suggestions */}
+          {showSuggestions && searchSuggestions.length > 0 && (
+            <div className="search-suggestions">
+              {searchSuggestions.map((result) => (
+                <div 
+                  key={result.id}
+                  className="suggestion-item"
+                  onClick={() => handleSuggestionClick(result.url)}
+                >
+                  <div className="suggestion-title">{result.title}</div>
+                  <div className="suggestion-category">{result.category}</div>
+                  <div className="suggestion-description">{result.description}</div>
+                </div>
+              ))}
+              <div className="suggestion-footer" onClick={handleSearchSubmit}>
+                View all results →
+              </div>
+            </div>
+          )}
+
+          {/* No Results */}
+          {showSuggestions && searchQuery.trim() && searchSuggestions.length === 0 && (
+            <div className="search-suggestions">
+              <div className="no-results">No results found</div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -182,7 +313,6 @@ function Navbar() {
             </div>
           </li>
 
-          {/* Language Switcher */}
           <li 
             className="dropdown" 
             onMouseEnter={() => handleMouseEnter('language')} 
@@ -197,7 +327,6 @@ function Navbar() {
             <div className={`dropdown-content ${activeDropdown === 'language' ? 'show' : ''}`}>
               <a 
                 onClick={() => {
-                  console.log('English clicked');
                   changeLanguage('en');
                   setMenuOpen(false);
                   setActiveDropdown(null);
@@ -213,7 +342,6 @@ function Navbar() {
               </a>
               <a 
                 onClick={() => {
-                  console.log('Korean clicked');
                   changeLanguage('ko');
                   setMenuOpen(false);
                   setActiveDropdown(null);
@@ -229,7 +357,6 @@ function Navbar() {
               </a>
               <a 
                 onClick={() => {
-                  console.log('Urdu clicked');
                   changeLanguage('ur');
                   setMenuOpen(false);
                   setActiveDropdown(null);
@@ -250,4 +377,4 @@ function Navbar() {
     </div>
   );
 }
-export default Navbar
+export default Navbar;

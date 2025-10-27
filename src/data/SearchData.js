@@ -1,0 +1,424 @@
+export const searchData = [
+  // ========== MAIN/HOME ==========
+  {
+    id: 1,
+    title: "Home",
+    url: "/",
+    keywords: ["lotte", "chemical", "pakistan", "pta", "manufacturer", "home", "main", "welcome"],
+    category: "Main",
+    priority: 1,
+    description: "LOTTE Chemical Pakistan - Leading PTA manufacturer in Pakistan"
+  },
+
+  // ========== COMPANY ==========
+  {
+    id: 2,
+    title: "About LCPL",
+    url: "/about-lcpl",
+    keywords: ["about", "company", "lotte chemical pakistan", "lcpl", "introduction", "overview", "profile"],
+    category: "Company",
+    priority: 1,
+    description: "Learn about LOTTE Chemical Pakistan Ltd - Leading PTA manufacturer"
+  },
+  {
+    id: 3,
+    title: "Vision, Mission & Values",
+    url: "/vision",
+    keywords: ["vision", "mission", "values", "core values", "philosophy", "principles", "corporate culture"],
+    category: "Company",
+    priority: 1,
+    description: "Our vision to make difference through Value, Quality and Excellence"
+  },
+  {
+    id: 4,
+    title: "Culture",
+    url: "/culture",
+    keywords: ["culture", "work culture", "corporate culture", "work environment", "teamwork", "transparency", "openness"],
+    category: "Company",
+    priority: 2,
+    description: "Our culture of openness and transparent management approach"
+  },
+  {
+    id: 5,
+    title: "LCPL History",
+    url: "/lcpl-history",
+    keywords: ["history", "timeline", "milestones", "1996", "2009", "2013", "company history", "journey"],
+    category: "Company",
+    priority: 2,
+    description: "Historical timeline of LOTTE Chemical Pakistan from 1996 to present"
+  },
+  {
+    id: 6,
+    title: "LOTTE Global",
+    url: "/lotte-global",
+    keywords: ["lotte global", "international", "worldwide", "korea", "conglomerate", "global presence", "worldwide operations"],
+    category: "Company",
+    priority: 2,
+    description: "LOTTE Global operations and international presence"
+  },
+  {
+    id: 7,
+    title: "LOTTE Group Vision",
+    url: "/lotte-group-vision",
+    keywords: ["group vision", "lotte group", "corporate vision", "global vision", "asia top 10", "strategic vision"],
+    category: "Company",
+    priority: 2,
+    description: "LOTTE Group's vision and strategic direction"
+  },
+  {
+    id: 8,
+    title: "Charlotte's Story",
+    url: "/charlottes-story",
+    keywords: ["charlotte", "story", "name origin", "lotte name", "goethe", "sorrows of young werther", "inspiration"],
+    category: "Company",
+    priority: 3,
+    description: "The story behind LOTTE name inspired by Charlotte from Goethe's novel"
+  },
+
+  // ========== PRODUCTS ==========
+  {
+    id: 9,
+    title: "PTA (Purified Terephthalic Acid)",
+    url: "/pta",
+    keywords: ["pta", "purified terephthalic acid", "product", "raw material", "polyester", "manufacturing", "chemical"],
+    category: "Products",
+    priority: 1,
+    description: "LCPL's PTA product - primary raw material for polyester fiber, filament yarn, film and PET"
+  },
+  {
+    id: 10,
+    title: "Process & Technology",
+    url: "/process-technology",
+    keywords: ["process", "technology", "oxidation", "purification", "chemical process", "pta manufacturing", "effluent treatment"],
+    category: "Products",
+    priority: 2,
+    description: "PTA manufacturing process - oxidation stage, purification stage and environmental management"
+  },
+  {
+    id: 11,
+    title: "Specification",
+    url: "/specification",
+    keywords: ["specification", "technical specs", "pta specifications", "chemical properties", "physical properties", "quality standards"],
+    category: "Products",
+    priority: 2,
+    description: "Complete technical specifications and properties of PTA product"
+  },
+  {
+    id: 12,
+    title: "Customer Satisfaction",
+    url: "/customer-satisfaction",
+    keywords: ["customer satisfaction", "complaint management", "sales team", "customer service", "feedback"],
+    category: "Products",
+    priority: 3,
+    description: "Customer satisfaction system and complaint management process"
+  },
+
+  // ========== INVESTORS ==========
+  {
+    id: 13,
+    title: "Investor Information",
+    url: "/investor-information",
+    keywords: ["investor", "company symbol", "lotchem", "registration", "ntn", "auditor", "legal advisor", "share registrar"],
+    category: "Investors",
+    priority: 1,
+    description: "Company registration details, stock exchange symbol and investor information"
+  },
+  {
+    id: 14,
+    title: "Financial Documents",
+    url: "/financial-documents",
+    keywords: ["financial documents", "annual reports", "quarterly reports", "financial statements", "reports download"],
+    category: "Investors",
+    priority: 1,
+    description: "Annual reports, quarterly reports and financial documents download"
+  },
+  {
+    id: 15,
+    title: "Board of Directors",
+    url: "/board-of-director",
+    keywords: ["board of directors", "directors", "management", "executive team", "leadership", "board members"],
+    category: "Investors",
+    priority: 1,
+    description: "Board of Directors profiles, tenure and committee activities"
+  },
+  {
+    id: 16,
+    title: "Corporate Governance",
+    url: "/corporate-governance",
+    keywords: ["corporate governance", "business principles", "ethics", "compliance", "policies", "code of conduct"],
+    category: "Investors",
+    priority: 2,
+    description: "Corporate governance policies, business principles and ethical guidelines"
+  },
+  {
+    id: 17,
+    title: "Corporate Briefing",
+    url: "/corporate-briefing",
+    keywords: ["corporate briefing", "cbs", "investor presentation", "financial results", "shareholder meeting"],
+    category: "Investors",
+    priority: 2,
+    description: "Corporate Briefing Sessions and investor presentations"
+  },
+  {
+    id: 18,
+    title: "Share Holding",
+    url: "/share-holding",
+    keywords: ["share holding", "shareholding pattern", "stock ownership", "equity distribution"],
+    category: "Investors",
+    priority: 2,
+    description: "Share holding patterns and equity distribution information"
+  },
+  {
+    id: 19,
+    title: "Financial Highlights",
+    url: "/financial-highlights",
+    keywords: ["financial highlights", "performance", "results", "financial performance", "achievements"],
+    category: "Investors",
+    priority: 2,
+    description: "Financial performance highlights and key achievements"
+  },
+  {
+    id: 20,
+    title: "Notifications",
+    url: "/notifications",
+    keywords: ["notifications", "announcements", "psx notifications", "regulatory announcements", "company news"],
+    category: "Investors",
+    priority: 1,
+    description: "PSX notifications, regulatory announcements and company news"
+  },
+  {
+    id: 21,
+    title: "Investor Feedback",
+    url: "/investor-feedback",
+    keywords: ["investor feedback", "enquiry", "complaint", "shareholder services", "contact investor relations"],
+    category: "Investors",
+    priority: 2,
+    description: "Investor feedback form and shareholder services contact"
+  },
+  {
+    id: 22,
+    title: "Free Float",
+    url: "/free-float",
+    keywords: ["free float", "shares float", "market capitalization", "outstanding shares", "psx"],
+    category: "Investors",
+    priority: 3,
+    description: "Free float information and outstanding shares details"
+  },
+  {
+    id: 23,
+    title: "Gender Pay Gap",
+    url: "/gender-pay-gap",
+    keywords: ["gender pay gap", "pay equity", "diversity", "inclusion", "equal pay"],
+    category: "Investors",
+    priority: 3,
+    description: "Gender pay gap report and diversity initiatives"
+  },
+  {
+    id: 24,
+    title: "Election of Directors",
+    url: "/election-of-directors",
+    keywords: ["election of directors", "director election", "board election", "agm", "shareholder voting"],
+    category: "Investors",
+    priority: 2,
+    description: "Election of directors process and related documents"
+  },
+  {
+    id: 25,
+    title: "Unclaimed Dividend",
+    url: "/unclaimed-dividend",
+    keywords: ["unclaimed dividend", "dividend claim", "unpaid dividend", "dividend recovery", "shareholder claims"],
+    category: "Investors",
+    priority: 2,
+    description: "Unclaimed dividends and shares recovery process"
+  },
+  {
+    id: 26,
+    title: "Dividend Withheld",
+    url: "/dividend-withheld",
+    keywords: ["dividend withheld", "withheld dividend", "dividend payment", "dividend history", "dividend records"],
+    category: "Investors",
+    priority: 2,
+    description: "Dividend withheld records and payment history"
+  },
+  {
+    id: 27,
+    title: "Standard Request Forms",
+    url: "/request-form",
+    keywords: ["request forms", "shareholder forms", "zakat exemption", "bank mandate", "financial statements request"],
+    category: "Investors",
+    priority: 3,
+    description: "Standard request forms for shareholder services"
+  },
+
+  // ========== CAREER ==========
+  {
+    id: 28,
+    title: "Career Growth With LCPL",
+    url: "/growth",
+    keywords: ["career", "growth", "employee benefits", "development", "training", "employment", "jobs", "opportunities", "work environment"],
+    category: "Career",
+    priority: 1,
+    description: "Career development and employee benefits at Lotte Chemical Pakistan"
+  },
+  {
+    id: 29,
+    title: "Current Vacancies",
+    url: "/current-vacancies",
+    keywords: ["vacancies", "jobs", "career opportunities", "hiring", "manager", "engineer", "apply now", "recruitment", "employment"],
+    category: "Career",
+    priority: 1,
+    description: "Current job openings and career opportunities at Lotte Chemical Pakistan"
+  },
+  {
+    id: 30,
+    title: "Equal Opportunity",
+    url: "/equal-opportunity",
+    keywords: ["equal opportunity", "diversity", "non discrimination", "harassment", "workplace", "employment policy", "inclusion"],
+    category: "Career",
+    priority: 2,
+    description: "Equal opportunity employment policies at Lotte Chemical Pakistan"
+  },
+  {
+    id: 31,
+    title: "Recruitment",
+    url: "/recrutiment",
+    keywords: ["recruitment", "management trainee", "apprenticeship", "internship", "fresh graduates", "technical training"],
+    category: "Career",
+    priority: 1,
+    description: "Recruitment programs including Management Trainee Engineers and Apprenticeship"
+  },
+  {
+    id: 32,
+    title: "Career Support",
+    url: "/support",
+    keywords: ["career support", "para professionals", "apprenticeship training", "workforce", "job opportunities", "skill development"],
+    category: "Career",
+    priority: 2,
+    description: "Career support for highly-trained workforce and para professionals"
+  },
+  {
+    id: 33,
+    title: "Technical Training Center",
+    url: "/technical-training",
+    keywords: ["technical training", "training center", "ttc", "skill enhancement", "orientation", "workshop", "library", "practical training"],
+    category: "Career",
+    priority: 2,
+    description: "Technical Training Center facilities and programs at Lotte Chemical Pakistan"
+  },
+  {
+    id: 34,
+    title: "Training And Development",
+    url: "/training-development",
+    keywords: ["training", "development", "performance evaluation", "external training", "scholarships", "leadership development"],
+    category: "Career",
+    priority: 1,
+    description: "Training and development programs for employee growth"
+  },
+
+  // ========== CSR ==========
+  {
+    id: 35,
+    title: "Community",
+    url: "/community",
+    keywords: ["community", "csr", "corporate social responsibility", "flood relief", "humanitarian", "social development"],
+    category: "CSR",
+    priority: 1,
+    description: "Community development and flood relief initiatives by Lotte Chemical Pakistan"
+  },
+  {
+    id: 36,
+    title: "CSR In-Focus",
+    url: "/csr-in-focus",
+    keywords: ["csr", "corporate social responsibility", "flood relief", "humanitarian", "social responsibility", "community development"],
+    category: "CSR",
+    priority: 1,
+    description: "Corporate Social Responsibility initiatives and flood relief contributions"
+  },
+  {
+    id: 37,
+    title: "Education",
+    url: "/education",
+    keywords: ["education", "nchd", "sindh education foundation", "tcf", "scholarships", "literacy", "school adoption", "youth education"],
+    category: "CSR",
+    priority: 2,
+    description: "Educational initiatives and support programs by Lotte Chemical Pakistan"
+  },
+  {
+    id: 38,
+    title: "Environment (CSR)",
+    url: "/environment",
+    keywords: ["environment", "csr", "environmental responsibility", "sustainability", "green initiatives"],
+    category: "CSR",
+    priority: 2,
+    description: "Environmental responsibility and sustainability initiatives"
+  },
+  {
+    id: 39,
+    title: "Health (CSR)",
+    url: "/health",
+    keywords: ["health", "medical", "healthcare", "siut", "hisar foundation", "medical equipment", "healthcare support", "free medical"],
+    category: "CSR",
+    priority: 2,
+    description: "Healthcare initiatives and medical support programs"
+  },
+
+  // ========== HSE (Health, Safety, Environment) ==========
+  {
+    id: 40,
+    title: "Health & Safety",
+    url: "/health-safety",
+    keywords: ["health", "safety", "hse", "audit", "employee health", "monitoring", "toolbox talks", "safety standards", "workplace safety"],
+    category: "HSE",
+    priority: 1,
+    description: "Health and safety policies and procedures at Lotte Chemical Pakistan"
+  },
+  {
+    id: 41,
+    title: "Environment (HSE)",
+    url: "/hse-environment",
+    keywords: ["environment", "hse", "3rs", "reduce recycle reuse", "emission reduction", "energy conservation", "water conservation", "tree plantation"],
+    category: "HSE",
+    priority: 1,
+    description: "Environmental protection and sustainability initiatives"
+  },
+  {
+    id: 42,
+    title: "HSE In-Focus",
+    url: "/hse-in-focus",
+    keywords: ["hse", "health safety environment", "iso 45001", "iso 14001", "iso 9001", "safety record", "zero injury", "audit", "training"],
+    category: "HSE",
+    priority: 1,
+    description: "Health, Safety and Environment management systems and achievements"
+  },
+  {
+    id: 43,
+    title: "Policies",
+    url: "/policies",
+    keywords: ["policies", "hse policies", "quality policy", "safety standards", "compliance", "international standards", "regulations"],
+    category: "HSE",
+    priority: 2,
+    description: "Company policies including Quality Policy and HSE standards"
+  },
+
+  // ========== NEWSLETTER ==========
+  {
+    id: 44,
+    title: "Newsletter",
+    url: "/newsletter",
+    keywords: ["newsletter", "pdf", "download", "company updates", "employee communication", "corporate news", "quarterly reports"],
+    category: "Newsletter",
+    priority: 1,
+    description: "Company newsletters and quarterly updates"
+  },
+
+  // ========== CONTACT ==========
+  {
+    id: 45,
+    title: "Contact Us",
+    url: "/contact",
+    keywords: ["contact", "phone", "email", "address", "location", "telephone", "fax", "connect", "reach us"],
+    category: "Contact",
+    priority: 1,
+    description: "Contact details - Phone, email, address and contact form"
+  },
+];
