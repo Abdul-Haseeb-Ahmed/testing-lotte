@@ -587,6 +587,7 @@ const Notifications = () => {
       }
     ]
   };
+  const sortedYears = Object.keys(notifications).sort((a, b) => b - a);
 
   return (
     <PageLayout 
@@ -601,9 +602,9 @@ const Notifications = () => {
           Stay updated with the latest announcements, financial results, AGM notices, and regulatory compliance documents from Lotte Chemical Pakistan Limited.
         </div>
 
-        {/* Notifications by Year */}
+        {/* Notifications by Year - Ab descending order mein */}
         <div style={{ marginTop: '30px' }}>
-          {Object.entries(notifications).map(([year, items]) => (
+          {sortedYears.map((year) => (
             <div 
               key={year} 
               style={{ 
@@ -681,7 +682,7 @@ const Notifications = () => {
                       display: 'block',
                       marginTop: '2px'
                     }}>
-                      {items.length} {items.length === 1 ? 'notification' : 'notifications'}
+                      {notifications[year].length} {notifications[year].length === 1 ? 'notification' : 'notifications'}
                     </span>
                   </div>
                 </div>
@@ -717,7 +718,7 @@ const Notifications = () => {
                       }
                     `}
                   </style>
-                  {items.map((item, index) => (
+                  {notifications[year].map((item, index) => (
                     <div 
                       key={index}
                       style={{

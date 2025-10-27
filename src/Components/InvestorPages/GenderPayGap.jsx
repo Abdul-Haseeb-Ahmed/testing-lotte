@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function GenderPayGap() {
@@ -9,14 +10,16 @@ function GenderPayGap() {
     <PageLayout 
       headerImage={images.aboutLcpl}
       activeMenu="/gender-pay-gap"
-      section = "investor"
+      section="investor"
     >
       <div className='content-box'>
         <div className='management-graph'>
-          <img src={images.genderPayGap} loading='lazy' alt="gender pay gap image" />
+          <UniversalImage 
+            src={images.genderPayGap} 
+            alt="Gender Pay Gap" 
+            className="genderpaygap-image"
+          />
         </div>
-
-
       </div>
     </PageLayout>
   )

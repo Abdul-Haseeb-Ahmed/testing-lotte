@@ -2,6 +2,7 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function FreeFlow() {
@@ -9,7 +10,7 @@ function FreeFlow() {
     <PageLayout 
       headerImage={images.aboutLcpl}
       activeMenu="/free-float"
-      section = "investor"
+      section="investor"
     >
       <div className="content-box">
         <h2>Free Float</h2>
@@ -18,13 +19,14 @@ function FreeFlow() {
         </div>
         
         <div className='management-graph'>
-          <img src={images.freeFloat} loading='lazy' alt="free float image" />
+          <UniversalImage 
+            src={images.freeFloat} 
+            alt="Free Float" 
+            className="freefloat-image"
+          />
         </div>
-
-
       </div>
     </PageLayout>
-    
   )
 }
 

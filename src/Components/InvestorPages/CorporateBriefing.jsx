@@ -6,11 +6,11 @@ import '../../app/globals.css'
 
 function Corporate() {
   const archivedSessions = [
-    { date: "21 November 2023", url: "#" },
-    { date: "16 November 2022", url: "#" },
-    { date: "11 November 2021", url: "#" },
-    { date: "12 November 2020", url: "#" },
-    { date: "21 November 2019", url: "#" }
+    { date: "21 November 2023", url: "https://www.lottechem.pk/wp-content/uploads/2023/11/Presentation-PSX.pdf" },
+    { date: "16 November 2022", url: "https://www.lottechem.pk/wp-content/uploads/2022/12/CBS-prsentation-2022.pdf" },
+    { date: "11 November 2021", url: "https://www.lottechem.pk/wp-content/uploads/2022/12/CBS-presentation-2021.pdf" },
+    { date: "12 November 2020", url: "https://www.lottechem.pk/wp-content/uploads/2022/12/CBS-presentation-2020.pdf" },
+    { date: "21 November 2019", url: "https://www.lottechem.pk/wp-content/uploads/2022/12/CBS-presentation-2019.pdf" }
   ];
 
   return (

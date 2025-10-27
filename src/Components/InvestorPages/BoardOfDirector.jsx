@@ -2,9 +2,11 @@
 import React from 'react'
 import PageLayout from '../PageLayout/PageLayout'
 import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import UniversalImage from '../UniversalImage/UniversalImage'
 import '../../app/globals.css'
 
 function BoardOfDirectors() {
+
   const directors = [
     {
       name: "Jo Hyun Kwoun",
@@ -116,10 +118,11 @@ function BoardOfDirectors() {
                 overflow: 'hidden',
                 borderRadius: '8px'
               }}>
-                <img 
-                  loading='lazy'
+                <UniversalImage 
                   src={director.image} 
                   alt={director.name}
+                  width={160}
+                  height={180}
                   style={{
                     width: '100%',
                     height: '100%',
