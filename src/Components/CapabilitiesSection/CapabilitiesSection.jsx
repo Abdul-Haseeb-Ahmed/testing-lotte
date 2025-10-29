@@ -174,7 +174,7 @@ function ParallaxSection({ image, title, text, isContact }) {
               </div>
 
               {/* Contact Form */}
-              <div className="contact-form-container">
+              <div className="contact-form-container  contact-area" id="contact-section">
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label>Your Name (required)</label>

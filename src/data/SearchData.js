@@ -415,7 +415,7 @@ export const searchData = [
   {
     id: 45,
     title: "Contact Us",
-    url: "/contact",
+    url: "/#contact-section",
     keywords: ["contact", "phone", "email", "address", "location", "telephone", "fax", "connect", "reach us"],
     category: "Contact",
     priority: 1,
