@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start", 
     "lint": "biome check",
     "format": "biome format --write",
-    "deploy": "npm run build && next export"
+    "deploy": "npm run build"
   },
   "dependencies": {
     "lucide": "^0.546.0",
