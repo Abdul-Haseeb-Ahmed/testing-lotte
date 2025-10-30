@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import './CapabilitiesSection.css'
-import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import { images } from '../CloudinaryImagesUrl/ImagesUrl'
 import { 
   FaMapMarkerAlt, 
   FaPhone, 
@@ -32,8 +32,8 @@ function ParallaxSection({ image, title, text, isContact }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitMessage({ type: '', text: '' }); // Clear previous message
-    
+    setSubmitMessage({ type: '', text: '' });
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -42,29 +42,29 @@ function ParallaxSection({ image, title, text, isContact }) {
         },
         body: JSON.stringify({
           access_key: '65c0be3c-519a-456e-9655-a89b1f310a97',
-          ...formData
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject,
+          message: formData.message,
+          from_name: "Lotte Chemical - Contact Form"
         })
       });
 
       if (response.ok) {
         setSubmitMessage({ type: 'success', text: 'Form submitted successfully!' });
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
+
         setTimeout(() => {
           setSubmitMessage({ type: '', text: '' });
         }, 10000);
       } else {
         setSubmitMessage({ type: 'error', text: 'Error: Form not submitted. Please try again.' });
-        
-        // Auto hide error message after 10 seconds
         setTimeout(() => {
           setSubmitMessage({ type: '', text: '' });
         }, 10000);
       }
     } catch (error) {
       setSubmitMessage({ type: 'error', text: 'Error: Form not submitted. Please try again.' });
-      
-      // Auto hide error message after 10 seconds
       setTimeout(() => {
         setSubmitMessage({ type: '', text: '' });
       }, 10000);
@@ -79,19 +79,17 @@ function ParallaxSection({ image, title, text, isContact }) {
 
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       const visibilityThreshold = windowHeight * 0.7;
       const isInView = rect.top < visibilityThreshold;
-      
+
       if (isInView && !isVisible) {
         setIsVisible(true);
       }
-      
-      // Smooth parallax effect on background
+
       if (rect.top < windowHeight && rect.bottom > 0) {
         const scrolled = (windowHeight - rect.top) / windowHeight;
         const movement = scrolled * 150;
-        
         section.style.backgroundPositionY = `calc(50% + ${movement}px)`;
       }
     };
@@ -99,7 +97,7 @@ function ParallaxSection({ image, title, text, isContact }) {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
@@ -174,7 +172,7 @@ function ParallaxSection({ image, title, text, isContact }) {
               </div>
 
               {/* Contact Form */}
-              <div className="contact-form-container">
+              <div className="contact-form-container  contact-area" id="contact-section">
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label>Your Name (required)</label>

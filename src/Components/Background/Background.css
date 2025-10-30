@@ -14,18 +14,18 @@
   height: 100%;
   opacity: 0;
   transition: opacity 1s ease-in-out, transform 1.2s ease-in-out;
-  transform: scale(1.1); /* Slight zoom out */
+  transform: scale(1.1);
 }
 
 .slide.active {
   opacity: 1;
-  transform: scale(1); /* Normal size */
+  transform: scale(1);
 }
 
-/* IMPORTANT: Next.js Image ke liye */
+/* Next.js Image ke liye */
 .slide img {
   object-fit: cover;
-  object-position: center top; /* Ye tumhare background-position jaise hai */
+  object-position: center top;
   width: 100%;
   height: 100%;
 }
@@ -35,21 +35,202 @@
   max-width: 800px;
   padding: 0 20px;
   position: relative;
-  z-index: 10; /* Text upar dikhega */
+  z-index: 10;
 }
 
-@media (max-width: 850px) {
-  .slide-content h1 {
-    font-size: 40px;
+/* Large Desktop - 1920px and above */
+@media (min-width: 1920px) {
+  .background-slider {
+    height: 100vh !important;
   }
 }
 
-@media (max-width: 650px) {
+/* Desktop - 1440px to 1919px */
+@media (max-width: 1919px) and (min-width: 1440px) {
+  .background-slider {
+    height: 90vh;
+  }
+}
+
+/* Standard Desktop - 1280px to 1439px */
+@media (max-width: 1439px) and (min-width: 1280px) {
+  .background-slider {
+    height: 148vh;
+  }
+}
+
+/* Small Desktop / Large Tablet - 1024px to 1279px */
+@media (max-width: 1279px) and (min-width: 1024px) {
+  .background-slider {
+    height: 120vh;
+    margin-top: -30px !important;
+  }
+}
+
+/* iPad Pro / Large Tablets - 834px to 1023px */
+@media (max-width: 1023px) and (min-width: 834px) {
+  .background-slider {
+    height: 80vh;
+    margin-top: -10px !important;
+  }
+  
+  .slide img {
+    object-position: center;
+  }
+}
+
+/* iPad / Medium Tablets - 768px to 833px */
+@media (max-width: 833px) and (min-width: 768px) {
+  .background-slider {
+    height: 70vh;
+    min-height: 500px;
+    margin-top: 10px !important;
+  }
+  
+  .slide img {
+    object-position: center;
+  }
+}
+
+/* Small Tablets / Large Phones Landscape - 650px to 767px */
+@media (max-width: 767px) and (min-width: 650px) {
+  .background-slider {
+    height: 57vh;
+    min-height: 350px;
+  }
+  
+  .slide img {
+    object-position: center;
+  }
+  
   .slide-content h1 {
-    font-size: 30px;
+    font-size: 35px;
+  }
+}
+
+/* Large Mobile Phones - 540px to 649px */
+@media (max-width: 649px) and (min-width: 480px) {
+  .background-slider {
+    height: 55vh;
+    min-height: 370px;
+    margin-top: -10px !important;
+  }
+  
+  .slide img {
+    object-position: center;
+  }
+  
+  .slide-content h1 {
+    font-size: 32px;
+  }
+  
+  .slide-content p {
+    font-size: 15px;
+  }
+}
+
+/* Standard Mobile Phones - 430px to 539px (iPhone 14 Pro Max, etc) */
+@media (max-width: 539px) and (min-width: 430px) {
+  .background-slider {
+    height: 50vh;
+    min-height: 350px;
+    margin-top: -20px !important;
+  }
+  
+  .slide img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .slide-content h1 {
+    font-size: 28px;
   }
   
   .slide-content p {
     font-size: 14px;
+  }
+}
+
+/* Common Mobile Phones - 390px to 429px (iPhone 14 Pro, iPhone 13, etc) */
+@media (max-width: 429px) and (min-width: 390px) {
+  .background-slider {
+    height: 40vh;
+    min-height: 300px;
+    margin-top: -20px !important;
+    width: 100%;
+  }
+  
+  .slide img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .slide-content h1 {
+    font-size: 26px;
+  }
+  
+  .slide-content p {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile Phones - 375px to 389px (iPhone SE, older iPhones) */
+@media (max-width: 389px) and (min-width: 375px) {
+  .background-slider {
+    height: 42vh;
+    min-height: 300px;
+    margin-top: -25px !important;
+  }
+  
+  .slide img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .slide-content h1 {
+    font-size: 24px;
+  }
+  
+  .slide-content p {
+    font-size: 13px;
+  }
+}
+
+/* Landscape Mode for Mobile Devices */
+@media (max-width: 915px) and (orientation: landscape) {
+  .background-slider {
+    height: 100vh;
+    margin-top: 0 !important;
+  }
+  
+  .slide img {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .slide-content h1 {
+    font-size: 32px;
+  }
+}
+
+/* Tablet Landscape Mode */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .background-slider {
+    height: 90vh;
+    margin-top: -7px !important;
+  }
+  
+  .slide img {
+    object-position: center;
+  }
+}
+
+/* iPad Pro Specific */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .background-slider {
+    height: 85vh;
   }
 }

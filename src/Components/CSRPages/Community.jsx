@@ -81,11 +81,6 @@ function Community() {
             LOTTE Chemical Pakistan, over the years, has taken considerable initiatives to help build the community and extending a hand of support to the flood victims is one such effort. With an aim to create positive community development and an environment that fosters societal uplift, LOTTE Chemical Pakistan looks forward to future opportunities of positively contributing to the society.
           </p>
         </div>
-
-        {/* Last Updated */}
-        <div className="last-updated">
-          <p>Last Updated on September 13, 2019</p>
-        </div>
       </div>
     </PageLayout>
   )
