@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import './CapabilitiesSection.css'
-import {images} from '../CloudinaryImagesUrl/ImagesUrl'
+import { images } from '../CloudinaryImagesUrl/ImagesUrl'
 import { 
   FaMapMarkerAlt, 
   FaPhone, 
@@ -23,6 +23,75 @@ function ParallaxSection({ image, title, text, isContact }) {
     message: ''
   });
 
+  // Responsive States
+  const [backgroundPosition, setBackgroundPosition] = useState('center bottom');
+  const [minHeight, setMinHeight] = useState('750px');
+  const [sectionPadding, setSectionPadding] = useState('30px 90px 50px 90px');
+  const [titleFontSize, setTitleFontSize] = useState('28px');
+  const [textFontSize, setTextFontSize] = useState('20px');
+
+  // Responsive Handler
+  useEffect(() => {
+    const updateResponsive = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1024) {
+        // Desktop
+        setBackgroundPosition('center bottom');
+        setMinHeight(isContact ? '900px' : '750px');
+        setSectionPadding('30px 90px 50px 90px');
+        setTitleFontSize('28px');
+        setTextFontSize('20px');
+      } else if (width >= 768) {
+        // Tablet
+        setBackgroundPosition('center center');
+        setMinHeight(isContact ? '800px' : '650px');
+        setSectionPadding('25px 60px 40px 60px');
+        setTitleFontSize('24px');
+        setTextFontSize('17px');
+      } else if (width >= 576) {
+        // Mobile Large
+        setBackgroundPosition('center center');
+        setMinHeight(isContact ? '750px' : '550px');
+        setSectionPadding('20px 40px 35px 40px');
+        setTitleFontSize('22px');
+        setTextFontSize('16px');
+      } else if (width >= 480) {
+        // Mobile Medium
+        setBackgroundPosition('center center');
+        setMinHeight(isContact ? '700px' : '500px');
+        setSectionPadding('20px 30px 30px 30px');
+        setTitleFontSize('20px');
+        setTextFontSize('15px');
+      } else if (width >= 390) {
+        // Mobile Small
+        setBackgroundPosition('35% center');
+        setMinHeight(isContact ? '650px' : '480px');
+        setSectionPadding('18px 25px 28px 25px');
+        setTitleFontSize('19px');
+        setTextFontSize('14px');
+      } else if (width >= 360) {
+        // Mobile Extra Small
+        setBackgroundPosition('30% center');
+        setMinHeight(isContact ? '600px' : '450px');
+        setSectionPadding('16px 20px 25px 20px');
+        setTitleFontSize('18px');
+        setTextFontSize('14px');
+      } else {
+        // Mobile Very Small
+        setBackgroundPosition('25% center');
+        setMinHeight(isContact ? '550px' : '420px');
+        setSectionPadding('15px 18px 22px 18px');
+        setTitleFontSize('16px');
+        setTextFontSize('13px');
+      }
+    };
+
+    updateResponsive();
+    window.addEventListener('resize', updateResponsive);
+    return () => window.removeEventListener('resize', updateResponsive);
+  }, [isContact]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -32,8 +101,8 @@ function ParallaxSection({ image, title, text, isContact }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitMessage({ type: '', text: '' }); // Clear previous message
-    
+    setSubmitMessage({ type: '', text: '' });
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -42,29 +111,29 @@ function ParallaxSection({ image, title, text, isContact }) {
         },
         body: JSON.stringify({
           access_key: '65c0be3c-519a-456e-9655-a89b1f310a97',
-          ...formData
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject,
+          message: formData.message,
+          from_name: "Lotte Chemical - Contact Form"
         })
       });
 
       if (response.ok) {
         setSubmitMessage({ type: 'success', text: 'Form submitted successfully!' });
         setFormData({ name: '', email: '', subject: '', message: '' });
-        
+
         setTimeout(() => {
           setSubmitMessage({ type: '', text: '' });
         }, 10000);
       } else {
         setSubmitMessage({ type: 'error', text: 'Error: Form not submitted. Please try again.' });
-        
-        // Auto hide error message after 10 seconds
         setTimeout(() => {
           setSubmitMessage({ type: '', text: '' });
         }, 10000);
       }
     } catch (error) {
       setSubmitMessage({ type: 'error', text: 'Error: Form not submitted. Please try again.' });
-      
-      // Auto hide error message after 10 seconds
       setTimeout(() => {
         setSubmitMessage({ type: '', text: '' });
       }, 10000);
@@ -79,19 +148,17 @@ function ParallaxSection({ image, title, text, isContact }) {
 
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       const visibilityThreshold = windowHeight * 0.7;
       const isInView = rect.top < visibilityThreshold;
-      
+
       if (isInView && !isVisible) {
         setIsVisible(true);
       }
-      
-      // Smooth parallax effect on background
+
       if (rect.top < windowHeight && rect.bottom > 0) {
         const scrolled = (windowHeight - rect.top) / windowHeight;
         const movement = scrolled * 150;
-        
         section.style.backgroundPositionY = `calc(50% + ${movement}px)`;
       }
     };
@@ -99,7 +166,7 @@ function ParallaxSection({ image, title, text, isContact }) {
     handleScroll();
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
@@ -112,18 +179,20 @@ function ParallaxSection({ image, title, text, isContact }) {
       className="capabilities-section"
       style={{ 
         backgroundImage: `url(${image})`,
+        backgroundPosition: backgroundPosition,
         willChange: 'background-position',
-        minHeight: isContact ? '900px' : '750px'
+        minHeight: minHeight
       }}
     >
       <div className="overlay"></div>
       <div 
         ref={boxRef}
         className={`sub-div ${isVisible ? 'visible' : ''} ${isContact ? 'contact-sub-div' : ''}`}
+        style={{ padding: sectionPadding }}
       >
         <div className="sub-div-content">
-          <h2>{title}</h2>
-          <p>{text}</p>
+          <h2 style={{ fontSize: titleFontSize }}>{title}</h2>
+          <p style={{ fontSize: textFontSize }}>{text}</p>
           
           {isContact && (
             <div className="contact-layout">

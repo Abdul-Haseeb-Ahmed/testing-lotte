@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { searchData } from '@/data/SearchData';
 
@@ -7,6 +7,41 @@ function SearchResults() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const query = searchParams.get('q') || '';
+  const [topPadding, setTopPadding] = useState('180px');
+  
+  // Handle responsive padding based on screen size
+  useEffect(() => {
+    const updatePadding = () => {
+      const width = window.innerWidth;
+      
+      if (width >= 2560) {
+        setTopPadding('230px');
+      } else if (width >= 1920) {
+        setTopPadding('110px');
+      } else if (width >= 1440) {
+        setTopPadding('90px');
+      } else if (width > 1024) {
+        setTopPadding('50px');
+      } else if (width > 768) {
+        setTopPadding('15px');
+      } else if (width > 480) {
+        setTopPadding('13px');
+      } else if (width > 400) {
+        setTopPadding('5px');
+      } else {
+        setTopPadding('3px');
+      }
+    };
+    
+    // Initial update
+    updatePadding();
+    
+    // Add resize listener
+    window.addEventListener('resize', updatePadding);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', updatePadding);
+  }, []);
   
   // Search Logic (same as Navbar)
   const performSearch = (searchQuery) => {
@@ -53,8 +88,14 @@ function SearchResults() {
     router.push(url);
   };
 
+  // Dynamic styles with responsive padding
+  const containerStyle = {
+    ...styles.container,
+    paddingTop: topPadding
+  };
+
   return (
-    <div style={styles.container}>
+    <div style={containerStyle}>
       <div style={styles.header}>
         <h1 style={styles.title}>Search Results</h1>
         {query && (
@@ -124,6 +165,7 @@ const styles = {
     margin: '0 auto',
     padding: '40px 20px',
     minHeight: '60vh',
+    // paddingTop will be set dynamically
   },
   header: {
     marginBottom: '30px',
@@ -218,7 +260,7 @@ const styles = {
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div style={{textAlign: 'center', padding: '40px'}}>Loading...</div>}>
+    <Suspense fallback={<div style={{textAlign: 'center', padding: '40px', paddingTop: '180px'}}>Loading...</div>}>
       <SearchResults />
     </Suspense>
   );

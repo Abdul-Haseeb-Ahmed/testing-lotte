@@ -82,7 +82,7 @@ const InvestorFeedback = () => {
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('phone', formData.phone);
-      formDataToSend.append('subject', formData.subject);
+      formDataToSend.append('_subject', formData.subject);
       formDataToSend.append('message', formData.message);
       formDataToSend.append('from_name', 'Lotte Chemical - Investor Feedback');
 

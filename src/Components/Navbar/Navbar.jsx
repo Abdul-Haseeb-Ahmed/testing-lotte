@@ -24,19 +24,19 @@ function Navbar() {
   };
 
   const handleMouseEnter = (dropdownName) => {
-    if (window.innerWidth > 840) {
+    if (window.innerWidth > 1030) {
       setActiveDropdown(dropdownName);
     }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > 840) {
+    if (window.innerWidth > 1030) {
       setActiveDropdown(null);
     }
   };
 
   const handleDropdownClick = (dropdownName) => {
-    if (window.innerWidth <= 840) {
+    if (window.innerWidth <= 1030) {
       setActiveDropdown(activeDropdown === dropdownName ? null : dropdownName);
     }
   };
