@@ -62,16 +62,34 @@
 /* Small Desktop / Large Tablet - 1024px to 1279px */
 @media (max-width: 1279px) and (min-width: 1024px) {
   .background-slider {
+<<<<<<< HEAD
     height: 120vh;
     margin-top: -30px !important;
+=======
+<<<<<<< HEAD
+    height: 120vh;
+    margin-top: -30px !important;
+=======
+    height: 100vh;
+>>>>>>> 5dc40f283b25cb351841dc4ad33dff51f1f68658
+>>>>>>> 94d83de944fdffa703fb6fa913b2c0a7f9d6b1d1
   }
 }
 
 /* iPad Pro / Large Tablets - 834px to 1023px */
 @media (max-width: 1023px) and (min-width: 834px) {
   .background-slider {
+<<<<<<< HEAD
     height: 80vh;
     margin-top: -10px !important;
+=======
+<<<<<<< HEAD
+    height: 80vh;
+    margin-top: -10px !important;
+=======
+    height: 75vh;
+>>>>>>> 5dc40f283b25cb351841dc4ad33dff51f1f68658
+>>>>>>> 94d83de944fdffa703fb6fa913b2c0a7f9d6b1d1
   }
   
   .slide img {
@@ -84,7 +102,14 @@
   .background-slider {
     height: 70vh;
     min-height: 500px;
+<<<<<<< HEAD
     margin-top: 10px !important;
+=======
+<<<<<<< HEAD
+    margin-top: 10px !important;
+=======
+>>>>>>> 5dc40f283b25cb351841dc4ad33dff51f1f68658
+>>>>>>> 94d83de944fdffa703fb6fa913b2c0a7f9d6b1d1
   }
   
   .slide img {
@@ -96,7 +121,16 @@
 @media (max-width: 767px) and (min-width: 650px) {
   .background-slider {
     height: 57vh;
+<<<<<<< HEAD
     min-height: 350px;
+=======
+<<<<<<< HEAD
+    min-height: 350px;
+=======
+    min-height: 400px;
+    margin-top: 10px !important;
+>>>>>>> 5dc40f283b25cb351841dc4ad33dff51f1f68658
+>>>>>>> 94d83de944fdffa703fb6fa913b2c0a7f9d6b1d1
   }
   
   .slide img {
@@ -109,9 +143,21 @@
 }
 
 /* Large Mobile Phones - 540px to 649px */
+<<<<<<< HEAD
 @media (max-width: 649px) and (min-width: 480px) {
   .background-slider {
     height: 55vh;
+=======
+<<<<<<< HEAD
+@media (max-width: 649px) and (min-width: 480px) {
+  .background-slider {
+    height: 55vh;
+=======
+@media (max-width: 649px) and (min-width: 540px) {
+  .background-slider {
+    height: 50vh;
+>>>>>>> 5dc40f283b25cb351841dc4ad33dff51f1f68658
+>>>>>>> 94d83de944fdffa703fb6fa913b2c0a7f9d6b1d1
     min-height: 370px;
     margin-top: -10px !important;
   }
